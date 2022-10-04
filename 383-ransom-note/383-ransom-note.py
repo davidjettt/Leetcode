@@ -1,9 +1,6 @@
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        
-        
-        chars_bank = []
-        
+                
         # iterate through magazine and store each character in list
         # iterate through ransomNote and check if character is in list
         # if true then remove character from list
@@ -25,4 +22,6 @@ class Solution:
             
         
         
+        # Time O(2n^2)
         
+        # Space O(n)
