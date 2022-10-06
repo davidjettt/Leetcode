@@ -11,10 +11,10 @@ class Solution:
         
         # traverse through list again and if node is count then return node
         
-        count = 0
-        
-        curr = head
-        res = head
+        # count = 0
+        # curr = head
+        # res = head
+        count, curr, res = 0, head, head
         
         while curr:
             if curr is not None:
@@ -24,7 +24,6 @@ class Solution:
             
         goal = count // 2 + 1
         final = 1
-        # print(res)
         
         while final != goal:
             final += 1
