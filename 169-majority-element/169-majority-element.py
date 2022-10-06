@@ -27,21 +27,28 @@ class Solution:
             
 #         return res
     
+        # Time O(n)
+        # Space O(1)
+#         count = 1
+#         res = nums[0]
         
-        count = 1
-        res = nums[0]
-        
-        for i in range(1, len(nums)):
-            if nums[i] == res:
-                count += 1
-            else:
-                count -= 1
+#         for i in range(1, len(nums)):
+#             if nums[i] == res:
+#                 count += 1
+#             else:
+#                 count -= 1
             
-            if count < 0:
-                res = nums[i]
-                count = 0
+#             if count < 0:
+#                 res = nums[i]
+#                 count = 0
+#         return res
+            
+        res, count = 0, 0
+        for n in nums:
+            if count == 0:
+                res = n
+            count += (1 if res == n else -1)
         return res
-            
         
             
         
