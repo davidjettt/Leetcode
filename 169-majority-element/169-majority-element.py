@@ -1,6 +1,6 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        
+        # Time O(2n) Space O(n)
         counts = {}
         
         for num in nums:
@@ -11,11 +11,11 @@ class Solution:
         
         res = 0
         majority = 0
-        print(counts.items())
-        for num, count in counts.items():
-            if count > majority:
-                majority = count
-                res = num
         
+        for num in counts:
+            if counts[num] > majority:
+                majority = counts[num]
+                res = num
         return res
+
         
