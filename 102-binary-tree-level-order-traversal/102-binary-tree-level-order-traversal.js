@@ -26,7 +26,8 @@ var levelOrder = function(root) {
             res.push([curr.val]);
         }
         else {
-            res[curr.level][res[curr.level].length] = curr.val;
+            // res[curr.level][res[curr.level].length] = curr.val;
+            res[curr.level].push(curr.val) 
         }
         
         
