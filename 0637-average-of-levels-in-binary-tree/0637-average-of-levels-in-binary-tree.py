@@ -15,10 +15,9 @@ class Solution:
         res = []
         
         while len(q) > 0:
-            q_len = len(q)
             level = []
             
-            for i in range(q_len):
+            for i in range(len(q)):
                 node = q.popleft()
                 level.append(node.val)
                 
