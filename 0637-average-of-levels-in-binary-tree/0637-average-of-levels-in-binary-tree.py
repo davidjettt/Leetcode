@@ -15,19 +15,22 @@ class Solution:
         res = []
         
         while len(q) > 0:
-            level = []
-            
+            # level = []
+            num_nodes = 0
+            level_sum = 0
             for i in range(len(q)):
                 node = q.popleft()
-                level.append(node.val)
+                # level.append(node.val)
+                level_sum += node.val
+                num_nodes += 1
                 
                 if node.left:
                     q.append(node.left)
                 if node.right:
                     q.append(node.right)
-            # Time O(n) 
-            level_avg = sum(level) / len(level)
-            res.append(level_avg)
+
+            # level_avg = sum(level) / len(level)
+            res.append(level_sum / num_nodes)
         
         return res
         
