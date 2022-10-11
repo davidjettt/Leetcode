@@ -13,8 +13,12 @@ class Solution:
         if root.val == val:
             return root
         
-        return self.searchBST(root.left, val)  or self.searchBST(root.right, val) 
-        # self.searchBST(root.right, val)
+        if root.val < val:
+            return self.searchBST(root.right, val)
+        if root.val > val:
+            return self.searchBST(root.left, val)
+        
+        # return self.searchBST(root.left, val) or self.searchBST(root.right, val) 
         
 #         stack = [ root ]
 #         while len(stack) > 0:
