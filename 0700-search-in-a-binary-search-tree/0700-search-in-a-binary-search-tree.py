@@ -7,16 +7,27 @@
 class Solution:
     def searchBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
         
-        stack = [ root ]
-        while len(stack) > 0:
-            curr = stack.pop()
+        if not root:
+            return None
+        
+        if root.val == val:
+            return root
+        
+        return self.searchBST(root.left, val)  or self.searchBST(root.right, val) 
+        # self.searchBST(root.right, val)
+        
+#         stack = [ root ]
+#         while len(stack) > 0:
+#             curr = stack.pop()
             
-            if curr.val == val:
-                return curr
-            else:
-                if curr.left:
-                    stack.append(curr.left)
-                if curr.right:
-                    stack.append(curr.right)
+#             if curr.val == val:
+#                 return curr
+#             else:
+#                 if curr.left:
+#                     stack.append(curr.left)
+#                 if curr.right:
+#                     stack.append(curr.right)
 
-        return None
+#         return None
+    
+    
