@@ -16,19 +16,17 @@ class Solution:
         
         while len(q) > 0:
             q_len = len(q)
-            
             level = []
             
             for i in range(q_len):
                 node = q.popleft()
-                
                 level.append(node.val)
                 
                 if node.left:
                     q.append(node.left)
                 if node.right:
                     q.append(node.right)
-                    
+            # Time O(n) 
             level_avg = sum(level) / len(level)
             res.append(level_avg)
         
