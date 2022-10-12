@@ -20,16 +20,13 @@ class Solution:
         prev.next = curr
         
         while curr:
-            # if curr.next == None and curr.val == val:
-            #     prev.next = None
+            new_curr = curr.next
             if curr.val == val:
-                new_curr = curr.next
                 prev.next = curr.next
-                curr = new_curr
-            
             else:
                 prev = curr
-                curr = curr.next
+            
+            curr = new_curr
         
         return dummy.next
             
