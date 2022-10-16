@@ -18,11 +18,16 @@ class Solution:
 #             if heights[i] not in lookup:
 #                 heights[i] = names[i]
         
-        res = []
-        data = list(zip(heights, names))
-        data.sort(reverse=True)
+#         res = []
+#         data = list(zip(heights, names))
+#         data.sort(reverse=True)
+
         
-        for h, n in data:
-            res.append(n)
+#         for h, n in data:
+#             res.append(n)
             
-        return res
+#         return res
+    
+        x, y = zip(*sorted(zip(heights, names), reverse=True))
+        
+        return y
