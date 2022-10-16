@@ -23,10 +23,12 @@ class Solution:
         # data.sort(reverse=True)
         test = sorted(data, reverse=True)
         
-        for h, n in test:
-            res.append(n)
+        return [ n for h, n in test]
+        
+#         for h, n in test:
+#             res.append(n)
             
-        return res
+#         return res
     
 #         x, y = zip(*sorted(zip(heights, names), reverse=True))
         
