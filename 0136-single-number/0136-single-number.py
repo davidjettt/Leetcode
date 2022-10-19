@@ -8,15 +8,20 @@ class Solution:
         # what i know
             # need to look at every single num once to determine if there is a duplicate
             
-        n = len(nums)    
-        r = nums[0]
+#         n = len(nums)    
+#         r = nums[0]
         
-        for i in range(1, n):
-            r = r ^ nums[i]
+#         for i in range(1, n):
+#             r = r ^ nums[i]
             
-        return r
+#         return r
         
+        res = 0
         
+        for n in nums:
+            res = res ^ n
+            
+        return res
 #         count = {}
         
 #         for n in nums:
