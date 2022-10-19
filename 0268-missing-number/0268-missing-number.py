@@ -13,8 +13,27 @@ class Solution:
 #             else:
 #                 return missingNum
 #         return missingNum
+
+#         nums.sort()
+#         for i in range(len(nums)):
+#             if i != nums[i]:
+#                 return i
+            
+#         return len(nums)
+    
+        sum1 = sum(nums)
+        sum2 = 0
+        
+        for i in range(len(nums) + 1):
+            sum2 += i
+            
+            
+        return sum2 - sum1
+    
     
         
-        return (len(nums) * (len(nums) + 1)) // 2 - sum(nums)
+    
+        
+        # return (len(nums) * (len(nums) + 1)) // 2 - sum(nums)
 
         
