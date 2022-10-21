@@ -31,13 +31,10 @@ class Solution:
             chars.add(s[windowStart + 1])
             chars.add(s[windowEnd])
             
-            if len(chars) != 3:
-                windowStart += 1
-                windowEnd += 1
-            else:
+            if len(chars) == 3:
                 count += 1
-                windowStart += 1
-                windowEnd += 1
-                
+            
+            windowStart += 1
+            windowEnd += 1
                 
         return count
