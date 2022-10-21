@@ -15,7 +15,8 @@ class Solution:
         
         # return count
         
-        
+        # Time O(n) where n is the number of chars in the string
+        # Space O(1) worst case scenario the set will only have a max of 3 chars in it
         
         if len(s) < 3:
             return 0
@@ -27,9 +28,10 @@ class Solution:
         while windowEnd < len(s):
             chars = set()
             
-            chars.add(s[windowStart])
-            chars.add(s[windowStart + 1])
-            chars.add(s[windowEnd])
+            chars.update([ s[windowStart], s[windowStart + 1], s[windowEnd] ])
+            # chars.add(s[windowStart])
+            # chars.add(s[windowStart + 1])
+            # chars.add(s[windowEnd])
             
             if len(chars) == 3:
                 count += 1
