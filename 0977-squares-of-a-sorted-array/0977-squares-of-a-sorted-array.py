@@ -9,6 +9,8 @@ class Solution:
         
 #         return res
         
+        # Time O(n)
+        # Space O(n)
         res = [''] * len(nums)
         
         resP = len(nums) - 1
@@ -18,14 +20,13 @@ class Solution:
         while left <= right:
             if nums[left]**2 > nums[right]**2:
                 res[resP] = nums[left] ** 2
-                resP -= 1
                 left += 1
             else:
                 res[resP] = nums[right] ** 2
-                resP -= 1
                 right -= 1
+                
+            resP -= 1
         
-        # res[resP] = nums[left]
         return res
             
         
