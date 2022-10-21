@@ -18,11 +18,13 @@ class Solution:
         right = len(nums) - 1
         
         while left <= right:
-            if nums[left]**2 > nums[right]**2:
-                res[resP] = nums[left] ** 2
+            leftSquare = nums[left]**2
+            rightSquare = nums[right]**2
+            if leftSquare > rightSquare:
+                res[resP] = leftSquare
                 left += 1
             else:
-                res[resP] = nums[right] ** 2
+                res[resP] = rightSquare
                 right -= 1
                 
             resP -= 1
