@@ -3,9 +3,8 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        
-        mid = 0
-        low, high = 0, len(nums) - 1
+    
+        mid, low, high = 0, 0, len(nums) - 1
         
         while mid <= high:
             
