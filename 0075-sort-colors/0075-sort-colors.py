@@ -9,16 +9,12 @@ class Solution:
         while mid <= high:
             
             if nums[mid] == 2:
-                temp = nums[high]
-                nums[high] = nums[mid]
-                nums[mid] = temp
+                nums[high], nums[mid] = nums[mid], nums[high]
                 
                 high -= 1
             
             elif nums[mid] == 0:
-                temp = nums[low]
-                nums[low] = nums[mid]
-                nums[mid] = temp
+                nums[low], nums[mid] = nums[mid], nums[low]
                 
                 low += 1
                 mid += 1
