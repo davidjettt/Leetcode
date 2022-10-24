@@ -1,11 +1,16 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         
+        # Time O(nlogn) + O(nlogn)
+        # Space O(n + m) 
+        
 #         s_sort = sorted(s)
 #         t_sort = sorted(t)
         
 #         return True if s_sort == t_sort else False
     
+        # Time O(2n) -> O(n)
+        # Space O(n)
         hashmap = {}
         
         for c in s:
@@ -15,7 +20,6 @@ class Solution:
                 hashmap[c] = 1
         
         for c in t:
-                
             if c in hashmap:
                 hashmap[c] -= 1
             else:
