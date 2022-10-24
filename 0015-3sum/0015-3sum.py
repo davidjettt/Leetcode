@@ -5,6 +5,7 @@ class Solution:
         
         
         for i in range(len(nums)):
+            # checks for duplicates
             if i > 0 and nums[i - 1] == nums[i]:
                 continue
                 
@@ -21,7 +22,7 @@ class Solution:
                 else:
                     triplets.append([nums[i], nums[left], nums[right]])
                     left += 1
-                    
+                    # Checks for duplicates and if still in bounds
                     while nums[left] == nums[left - 1] and left < right:
                         left += 1
                         
