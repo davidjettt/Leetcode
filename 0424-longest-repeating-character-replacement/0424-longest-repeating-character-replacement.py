@@ -1,5 +1,7 @@
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
+        # Time O(26n)
+        # Space O(1)
         frequency_map = {}
         res = 0 
         left = 0
@@ -8,7 +10,7 @@ class Solution:
             char = s[right]
             frequency_map[char] = 1 + frequency_map.get(char, 0)
     
-            most_frequent_char = max(frequency_map, key=frequency_map.get)
+            most_frequent_char = max(frequency_map, key=frequency_map.get)  # This is what causes it to be O(26n) Time
             
             if right - left + 1 - frequency_map[most_frequent_char] > k:
                 frequency_map[s[left]] -= 1
