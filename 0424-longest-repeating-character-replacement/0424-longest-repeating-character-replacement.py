@@ -27,13 +27,14 @@ class Solution:
                 frequency_map[char] = 1
     
             most_frequent_char = max(frequency_map, key=frequency_map.get)
-            print(frequency_map)
-            if right - left + 1 - frequency_map[most_frequent_char] <= k:
+            window_length = right - left + 1
+            
+            if window_length - frequency_map[most_frequent_char] <= k:
                 res = right - left + 1
             else:
                 frequency_map[s[left]] -= 1
                 left += 1
-                most_frequent_char = max(frequency_map)
+                most_frequent_char = max(frequency_map, key=frequency_map.get)
                 if right - left + 1 - frequency_map[most_frequent_char] <= k:
                     res = right - left + 1
         return res
