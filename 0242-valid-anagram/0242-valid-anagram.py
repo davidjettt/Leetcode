@@ -11,21 +11,20 @@ class Solution:
     
         # Time O(2n) -> O(n)
         # Space O(n)
-        hashmap = {}
+        letters = {}
+    
+        for char in s:
+            letters[char] = 1 + letters.get(char, 0)
+            
         
-        for c in s:
-            if c in hashmap:
-                hashmap[c] += 1
-            else:
-                hashmap[c] = 1
-        
-        for c in t:
-            if c in hashmap:
-                hashmap[c] -= 1
-            else:
+        for char in t:
+            if char not in letters:
                 return False
             
-            if hashmap[c] == 0:
-                del hashmap[c]
+            else:
+                if letters[char] == 1:
+                    del letters[char]
+                else:
+                    letters[char] -= 1
         
-        return len(hashmap) == 0
+        return len(letters) == 0
