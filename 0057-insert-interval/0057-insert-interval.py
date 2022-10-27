@@ -29,17 +29,28 @@ class Solution:
                     # return intervals
                     # change boolean variable back to False so that code will execute at next loop which will push any remaining intervals into result array
         
+        # Time O(n) where in is length of input array
+        # Space O(n) where n is length of result array
         res = []
         
         for i in range(len(intervals)):
+            # if end of new interval is less than start of current interval in iteration
+            # if true, that means there is no overlap and new interval comes first so append to result array
+            # and then we can slice the rest of the array from i and add to end of result array
             if newInterval[1] < intervals[i][0]:
                 res.append(newInterval)
                 return res + intervals[i:]
+            # if start of new interval is greater than end of current interval
+            # that means new interval comes after so we can append current interval to result array
             elif newInterval[0] > intervals[i][1]:
                 res.append(intervals[i])
             else:
+                # changes new interval
+                # start is the lowest between new and current
+                # end is the highest between new and current
                 newInterval = [ min(newInterval[0], intervals[i][0]), max(newInterval[1], intervals[i][1]) ]
         
+        # this runs if new interval goes at the very end
         res.append(newInterval)
         
         return res
@@ -69,8 +80,6 @@ class Solution:
 #                 else:
 #                     res.append(sub)
                 
-        
-                
-                
+    
             
         # return res
