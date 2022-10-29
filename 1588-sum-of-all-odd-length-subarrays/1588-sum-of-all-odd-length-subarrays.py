@@ -9,15 +9,20 @@ class Solution:
         res = 0
         
         for start in range(len(arr)):
-            end = start
-            while end < len(arr):
+            # end = start
+            for end in range(start, len(arr), 2):
                 if start == 0:
                     res += prefix_sum[end]
                 else:
                     res += prefix_sum[end] - prefix_sum[start - 1]
                 
-                end += 2
-        
+#             while end < len(arr):
+#                 if start == 0:
+#                     res += prefix_sum[end]
+#                 else:
+#                     res += prefix_sum[end] - prefix_sum[start - 1]
+                
+#                 end += 2
         return res
     
         
