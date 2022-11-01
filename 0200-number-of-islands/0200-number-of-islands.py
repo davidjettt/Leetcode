@@ -9,14 +9,12 @@ class Solution:
             for c in range(cols):
                 if grid[r][c] == '1' and (r, c) not in visited:
                     count += 1
-                    # print(visited)
                     visited.add((r, c))
                     q = deque()
                     q.append((r, c))
                     
                     while len(q) > 0:
                         curr = q.popleft()
-                        # neighbors = self.getNeighbors(grid, curr[0], curr[1])
                         
                         if grid[curr[0]][curr[1]] == '0':
                             continue
@@ -30,17 +28,6 @@ class Solution:
                                 if (new_row, new_col) not in visited:
                                     visited.add((new_row, new_col))
                                     q.append((new_row, new_col))
-                        
-                        # try:
-                        #     neighbors = self.getNeighbors(grid, curr[0], curr[1])
-                        # except IndexError:
-                        #     continue 
-#                         neighbors = getNeighbors(grid, curr[0], curr[1])
-                    
-#                         for neighbor in neighbors:
-#                             if neighbor not in visited:
-#                                 visited.add(neighbor)
-#                                 stack.append([*neighbor])
         
         return count
                         
