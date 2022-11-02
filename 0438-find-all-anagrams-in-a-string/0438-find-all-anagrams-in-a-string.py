@@ -10,6 +10,7 @@ class Solution:
         # if not in hashmap then break from loop
         # if go through entire substring successfully, add left pointer to res array
         # right and left pointers will increment by 1 once inner loop ends
+        
         if len(p) > len(s): return []
         p_chars, s_chars = {}, {}
         
@@ -21,12 +22,12 @@ class Solution:
         res = [0] if s_chars == p_chars else []
         
         while r < len(s):
-            if s_chars[s[l - 1]] == 1:
-                del s_chars[s[l - 1]]
-            else:
-                s_chars[s[l - 1]] -= 1
-            # s_chars[s[l - 1]] -= 1 if s_chars[s[l - 1]] == 1 else del s_chars[s[l - 1]]
             s_chars[s[r]] = 1 + s_chars.get(s[r], 0)
+            s_chars[s[l - 1]] -= 1
+            
+            if s_chars[s[l - 1]] == 0:
+                s_chars.pop(s[l - 1])
+            
             if s_chars == p_chars:
                 res.append(l)
             
