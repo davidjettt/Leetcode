@@ -1,5 +1,7 @@
 class Solution:
     def jump(self, nums: List[int]) -> int:
+        # Time O(n) for n is the number of numbers in input array
+        # Space O(1)
         left, right = 0, 0
         res = 0
         
