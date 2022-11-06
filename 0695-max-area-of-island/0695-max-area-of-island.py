@@ -18,7 +18,7 @@ class Solution:
         visited = set()
         max_area = 0
         
-        stack = []
+        stack = collections.deque()
         
         rows, cols = len(grid), len(grid[0])
         
@@ -30,7 +30,7 @@ class Solution:
                     visited.add((r, c))
                     
                     while len(stack) > 0:
-                        row, col = stack.pop()
+                        row, col = stack.popleft()
                         
                         curr_area += 1
                         
