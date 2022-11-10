@@ -18,7 +18,7 @@ class Solution:
         left_i, right_i = 0, 0
 
         while left_i < len(left) and right_i < len(right):
-            if left[left_i] < right[right_i]:
+            if left[left_i] <= right[right_i]:
                 res.append(left[left_i])
                 left_i += 1
             else:
