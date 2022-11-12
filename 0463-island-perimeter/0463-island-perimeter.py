@@ -12,15 +12,11 @@ class Solution:
         # if its neighbors is out of bounds or a 0 then add 1 to result perimeter
         # but only add neighbors that are 1s to q
         
-        
-        
         rows, cols = len(grid), len(grid[0])
         visited = set()
         # stack = []
         
         def dfs(r, c):
-            # if 0 > r >= rows and 0 > c >= cols or grid[r][c] == 0:
-            #     return 1
             if 0 > r or r >= rows or 0 > c or c >= cols or grid[r][c] == 0:
                 return 1
             if (r, c) in visited:
@@ -34,8 +30,6 @@ class Solution:
             
             return perim
             
-
-    
 #         def dfs(r, c):
 #             res = 0
 #             visited.add((r, c))
