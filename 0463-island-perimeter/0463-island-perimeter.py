@@ -12,6 +12,8 @@ class Solution:
         # if its neighbors is out of bounds or a 0 then add 1 to result perimeter
         # but only add neighbors that are 1s to q
         
+        # Time O(n * m) only visited each postion in the grid once
+        # Space O(n * m) have visit set and recursive calls
         rows, cols = len(grid), len(grid[0])
         visited = set()
         # stack = []
