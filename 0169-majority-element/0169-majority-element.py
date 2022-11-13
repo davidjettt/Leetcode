@@ -1,47 +1,31 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
+        count = 1
+        majority = nums[0]
         
-        count = {}
-        
-        for n in nums:
-            count[n] = 1 + count.get(n, 0)
-        
-        for key, val in count.items():
-            if val > len(nums) // 2:
-                return key
-        
-        
-        
-        
-        
-        
-        
-        # Time O(2n) Space O(n)
-#         counts = {}
-        
-#         for num in nums:
-#             if num not in counts:
-#                 counts[num] = 1
-#             else:
-#                 counts[num] += 1
-        
-#         res = 0
-#         majority = 0
-        
-#         for num in counts:
-#             if counts[num] > majority:
-#                 majority = counts[num]
-#                 res = num
-#         return res
-
-#         count = {}
-#         res, max_count = 0, 0
-#         for num in nums:
-#             count[num] = 1 + count.get(num, 0)
-#             res = num if count[num] > max_count else res
-#             max_count = max(max_count, count[num])
+        for i in range(1, len(nums)):
+            if nums[i] == majority:
+                count += 1
+            else:
+                count -= 1
             
-#         return res
+            if count < 0:
+                majority = nums[i]
+                count = 0
+        return majority
+        
+#         # Time O(n)
+#         # Space O(n)
+#         count = {}
+        
+#         for n in nums:
+#             count[n] = 1 + count.get(n, 0)
+        
+#         for key, val in count.items():
+#             if val > len(nums) // 2:
+#                 return key
+        
+
     
         # Time O(n)
         # Space O(1)
