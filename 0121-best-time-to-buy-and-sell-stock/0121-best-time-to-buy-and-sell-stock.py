@@ -13,7 +13,7 @@ class Solution:
             
             if prices[high] > prices[low]:
                 max_profit = max(max_profit, curr_profit)
-            else:
+            elif curr_profit < 0:
                 low = high
             high += 1
         
