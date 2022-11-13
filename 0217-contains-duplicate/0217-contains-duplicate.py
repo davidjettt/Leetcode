@@ -1,5 +1,20 @@
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
+        vals = set()
+        
+        for n in nums:
+            if n in vals:
+                return True
+            else:
+                vals.add(n)
+        return False
+        
+        
+        
+        
+        
+        
+        
         # Time O(n)
         # Space O(n)
 #         nums2 = set(nums)
@@ -10,15 +25,15 @@ class Solution:
 #             return False
 
         
-        nums.sort()
-        windowStart = 0
-        for windowEnd in range(1, len(nums)):
-            if nums[windowStart] == nums[windowEnd]:
-                return True
-            else:
-                windowStart += 1
+#         nums.sort()
+#         windowStart = 0
+#         for windowEnd in range(1, len(nums)):
+#             if nums[windowStart] == nums[windowEnd]:
+#                 return True
+#             else:
+#                 windowStart += 1
                 
-        return False
+#         return False
             
         
 
