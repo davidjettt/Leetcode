@@ -1,75 +1,26 @@
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
-        total_sum = int(a, 2) + int(b, 2)
+#         total_sum = int(a, 2) + int(b, 2)
         
-        return bin(total_sum)[2:]
+#         return bin(total_sum)[2:]
         
+        res = ''
+        carry = 0
         
+        a, b = a[::-1], b[::-1]
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-#         dec1 = self.binarytoDecimal(a)
-#         dec2 = self.binarytoDecimal(b)
-        
-#         return bin(dec1 + dec2).replace('0b', '')
-    
-    
-#     def binarytoDecimal(self, s):
-        
-#         return int(s, 2)
-        
-#         decimal, n, i = 0, 0, 0
-        
-#         while s != 0:
-#             dec = s % 10
+        for i in range(max(len(a), len(b))):
+            digitA = int(a[i]) if i < len(a) else 0
+            digitB = int(b[i]) if i < len(b) else 0 
             
-#             decimal = decimal + dec * pow(2, i)
+            total = digitA + digitB + carry
+            char = str(total % 2)
+            res = char + res
+            carry = total // 2
             
-#             s = s // 10
+        if carry:
+            res = '1' + res
+        return res
             
-#             i += 1
-#         return s
             
         
