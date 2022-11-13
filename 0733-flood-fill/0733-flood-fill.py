@@ -1,13 +1,12 @@
 class Solution:
     def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
-        # dfs
-        if sr < 0 or sr >= len(image) or sc < 0 or sc >= len(image[0]) or image[sr][sc] == color:
+        # Time O(n)
+        # Space O(n)
+        if not image or image[sr][sc] == color:
             return image
         
         self.dfs(image, sr, sc, image[sr][sc] , color)
         return image
-        
-        
         
     def dfs(self, image, r, c, initial, color):
         if r < 0 or r >= len(image) or c < 0 or c >= len(image[0]) or image[r][c] != initial:
@@ -20,31 +19,6 @@ class Solution:
         self.dfs(image, r, c + 1, initial, color)
         self.dfs(image, r, c - 1, initial, color)
 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
 #         # Checks if image exists or if current pixel is already the same color 
 #         if image is None or image[sr][sc] == color:
 #             return image
@@ -71,6 +45,3 @@ class Solution:
         
 #         # Right
 #         self.fill(image, r, c + 1, initial_pixel, color)
-        
-    # Time O(n)
-    # Space O(n)
