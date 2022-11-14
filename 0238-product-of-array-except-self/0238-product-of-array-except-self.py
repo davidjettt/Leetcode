@@ -3,7 +3,7 @@ class Solution:
         # Time O(n)
         # Space O(1)
         length = len(nums)
-        answer = [''] * length
+        answer = [1] * length
         prefix, postfix = 1, 1
         
         for i in range(length):
@@ -35,26 +35,24 @@ class Solution:
         
 #         length = len(nums)
 #         answer = [''] * length
-#         prefix = []
-#         postfix = []
+#         prefix, postfix = [], []
 #         curr_product, curr_product2 = 1, 1
 
-#         for n in nums:
-#             curr_product *= n
+#         for i in range(length):
+#             curr_product *= nums[i]
 #             prefix.append(curr_product)
         
 #         for i in range(length - 1, -1, -1):
 #             curr_product2 *= nums[i]
 #             postfix.append(curr_product2)
             
-#         postfix[::-1]
         
-#         answer[0] = 1 * postfix[1]
+#         answer[0] = 1 * postfix[::-1][1]
 #         answer[-1] = prefix[-2] * 1
         
 #         for i in range(1, length - 1):
 #             prefix_val = prefix[i - 1]
-#             postfix_val = postfix[i + 1]
+#             postfix_val = postfix[::-1][i + 1]
             
 #             answer[i] = prefix_val * postfix_val
     
