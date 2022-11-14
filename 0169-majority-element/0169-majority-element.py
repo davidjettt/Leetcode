@@ -9,9 +9,9 @@ class Solution:
             else:
                 count -= 1
             
-            if count < 0:
+            if count == 0:
                 majority = nums[i]
-                count = 0
+                count = 1
         return majority
         
 #         # Time O(n)
