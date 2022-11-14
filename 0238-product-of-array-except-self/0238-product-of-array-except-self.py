@@ -1,21 +1,23 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
+        # Time O(n)
+        # Space O(1)
         length = len(nums)
         answer = [''] * length
-        pre, post = 1, 1
+        prefix, postfix = 1, 1
         
         for i in range(length):
-            answer[i] = pre
-            pre *= nums[i]
-        print(answer)
+            answer[i] = prefix
+            prefix *= nums[i]
+
         for i in range(length - 1, -1, -1):
-            answer[i] *= post
-            post *= nums[i]
-        
-        
+            answer[i] *= postfix
+            postfix *= nums[i]
         
         return answer
         
+#         # Time O(n)
+#         # Space O(n)
 #         length = len(nums)
 #         answer = [''] * length
 #         prefix = []
@@ -42,14 +44,15 @@ class Solution:
 #             answer[i] = prefix_val * postfix_val
     
 #         return answer
-        
-        # answer = [''] * len(nums)        
-        # for i in range(len(answer)):
-        #     curr_product = 1
-        #     for j in range(len(nums)):
-        #         if i == j:
-        #             continue
-        #         else:
-        #             curr_product *= nums[j]
-        #     answer[i] = curr_product
-        # return answer
+#         # Time O(n^2)
+#         # Space O(1)
+#         answer = [''] * len(nums)        
+#         for i in range(len(answer)):
+#             curr_product = 1
+#             for j in range(len(nums)):
+#                 if i == j:
+#                     continue
+#                 else:
+#                     curr_product *= nums[j]
+#             answer[i] = curr_product
+#         return answer
