@@ -18,6 +18,21 @@ class Solution:
         
 #         # Time O(n)
 #         # Space O(n)
+#         n = len(nums)
+#         answer = []
+#         prefix, postfix = [1] * n, [1] * n
+#         for i in range(1, n):
+#             prefix[i] = prefix[i - 1] * nums[i - 1]
+        
+#         for i in range(1, n):
+#             postfix[i] = postfix[i - 1] * nums[::-1][i - 1]
+#             print(postfix)
+        
+#         for i in range(n):
+#             answer.append(prefix[i] * postfix[::-1][i])
+            
+#         return answer
+        
 #         length = len(nums)
 #         answer = [''] * length
 #         prefix = []
@@ -32,7 +47,7 @@ class Solution:
 #             curr_product2 *= nums[i]
 #             postfix.append(curr_product2)
             
-#         postfix.reverse()
+#         postfix[::-1]
         
 #         answer[0] = 1 * postfix[1]
 #         answer[-1] = prefix[-2] * 1
@@ -44,6 +59,8 @@ class Solution:
 #             answer[i] = prefix_val * postfix_val
     
 #         return answer
+
+
 #         # Time O(n^2)
 #         # Space O(1)
 #         answer = [''] * len(nums)        
