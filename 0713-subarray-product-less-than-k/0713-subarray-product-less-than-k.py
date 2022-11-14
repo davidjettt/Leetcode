@@ -12,21 +12,29 @@ class Solution:
         curr_product = 1  
         l = 0
         
-        for r in range(len(nums)):
-            curr_product *=  nums[r]
-            if curr_product < k:
-                res += (r - l + 1)
-            else:
-                while curr_product >= k and l < len(nums):
-                    curr_product //= nums[l]
-                    l += 1
+#         for r in range(len(nums)):
+#             curr_product *=  nums[r]
+#             if curr_product < k:
+#                 res += (r - l + 1)
+#             else:
+#                 while curr_product >= k and l < len(nums):
+#                     curr_product //= nums[l]
+#                     l += 1
                 
-                # if curr_product < k:
-                #     res += (r - l + 1)
+#                 # if curr_product < k:
+#                 #     res += (r - l + 1)
+#                 res += (r - l + 1)
+#         return 0 if res < 0 else res
+        
+        for r in range(len(nums)):
+            curr_product *= nums[r]
+            while curr_product >=k and l < len(nums):
+                curr_product //= nums[l]
+                l += 1
+            
+            if r >= l:
                 res += (r - l + 1)
-        return 0 if res < 0 else res
-        
-        
+        return res
         
         
         
