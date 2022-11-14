@@ -13,18 +13,17 @@ class Solution:
         # reset product variable
         
         # increment the i pointer and do the loop again
-        
-        answer = [''] * len(nums)
+        length = len(nums)
+        answer = [''] * length
         prefix = []
         postfix = []
-        
-        curr_product = 1
-        curr_product2 = 1
-        for i in range(len(nums)):
-            curr_product *= nums[i]
+        curr_product, curr_product2 = 1, 1
+
+        for n in nums:
+            curr_product *= n
             prefix.append(curr_product)
         
-        for i in range(len(nums) - 1, -1, -1):
+        for i in range(length - 1, -1, -1):
             curr_product2 *= nums[i]
             postfix.append(curr_product2)
             
@@ -33,7 +32,7 @@ class Solution:
         answer[0] = 1 * postfix[1]
         answer[-1] = prefix[-2] * 1
         
-        for i in range(1, len(nums) - 1):
+        for i in range(1, length - 1):
             prefix_val = prefix[i - 1]
             postfix_val = postfix[i + 1]
             
