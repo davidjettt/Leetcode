@@ -5,6 +5,8 @@ class Solution:
         # [2,3,1,2,4,3]
         #    l   r
         
+        if target in nums: return 1
+        
         l, r = 0, 0
         result = float('inf')
         window_sum = 0
@@ -15,9 +17,6 @@ class Solution:
                 result = min(result, r - l + 1)
                 window_sum -= nums[l]
                 l += 1
-                
-                if result == 1:
-                    return 1
             
             r += 1
         return 0 if result == float('inf') else result
@@ -40,36 +39,4 @@ class Solution:
 #                 shortest = min(shortest, length)
                 
 #         return 0 if shortest == float('inf') else shortest
-            
-        
-        
-        
-#         n = len(nums)
-#         prefix = [0] * (n + 1)
-#         for i in range(n):
-#             prefix[i + 1] = prefix[i] + nums[i]
-#             # prefix.append(prefix[i - 1] + nums[i - 1]) 
-
-            
-#         print(prefix)
-        
-#         i, j = 0, 0
-#         count = 0
-#         min_length = float('inf')
-#         while j < len(prefix[1:]):
-            
-#             if prefix[j] == target:
-#                 return 1
-            
-#             if count == target:
-#                 min_length = min(min_length, j - i + 1)
-                
-#             elif count < target:
-#                 count += prefix[j]
-#             else:
-#                 i += 1
-                
-            
-#             j += 1
-#         return 0 if min_length == float('inf') else min_length
             
