@@ -1,10 +1,7 @@
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
-        # SUBARRAY SUM MUST BE GREATER THAN OR EQUAL
-        
-        # [2,3,1,2,4,3]
-        #    l   r
-        
+        # Time O(n)
+        # Space O(1)
         if target in nums: return 1
         
         l, r = 0, 0
