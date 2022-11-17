@@ -7,10 +7,8 @@
 
 class Solution:
     def guessNumber(self, n: int) -> int:
-        
-        # 1 2 3
-        #     lmh
-        
+        # Time O(logn) where n is the range between 1 to n
+        # Space O(1)
         low, high = 1, n
         
         while low <= high:
@@ -20,7 +18,7 @@ class Solution:
                 high = mid - 1
             elif guess(mid) == 1:
                 low = mid + 1
-            elif guess(mid) == 0:
+            else:
                 return mid
         
         
