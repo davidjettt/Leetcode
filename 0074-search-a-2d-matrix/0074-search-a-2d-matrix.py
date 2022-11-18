@@ -7,9 +7,9 @@ class Solution:
         while low_row_idx <= high_row_idx:
             mid_row_idx = (low_row_idx + high_row_idx) // 2
             
-            if matrix[mid_row_idx][-1] < target:
+            if target > matrix[mid_row_idx][-1]:
                 low_row_idx = mid_row_idx + 1
-            elif matrix[mid_row_idx][0] > target:
+            elif target < matrix[mid_row_idx][0]:
                 high_row_idx = mid_row_idx - 1
             else:
                 break
