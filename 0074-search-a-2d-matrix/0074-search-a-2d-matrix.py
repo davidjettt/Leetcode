@@ -1,0 +1,42 @@
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+#         target = 3
+        
+#         [     l  m      h
+#             [ 1, 3, 5, 7], low, high, mid
+#             [10,11,16,20], 
+#             [23,30,34,60]  
+#         ]              
+
+        # 1, l
+        # 3, m
+        # 5  h
+        
+        low_row_idx, high_row_idx = 0, len(matrix) - 1
+        
+        while low_row_idx <= high_row_idx:
+            mid_row_idx = (low_row_idx + high_row_idx) // 2
+            
+            if matrix[mid_row_idx][-1] < target:
+                low_row_idx = mid_row_idx + 1
+            elif matrix[mid_row_idx][0] > target:
+                high_row_idx = mid_row_idx - 1
+            else:
+                break
+                
+        if low_row_idx > high_row_idx: 
+            return False
+        
+        left, right = 0, len(matrix[0]) - 1
+        new_row_idx = (low_row_idx + high_row_idx) // 2
+        
+        while left <= right:
+            mid = (left + right) // 2
+            if matrix[new_row_idx][mid] < target:
+                left = mid + 1
+            elif matrix[new_row_idx][mid] > target:
+                right = mid - 1
+            else:
+                return True
+        
+        return False
