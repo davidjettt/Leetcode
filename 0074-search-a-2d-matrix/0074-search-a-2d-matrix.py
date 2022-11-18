@@ -1,17 +1,7 @@
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-#         target = 3
-        
-#         [     l  m      h
-#             [ 1, 3, 5, 7], low, high, mid
-#             [10,11,16,20], 
-#             [23,30,34,60]  
-#         ]              
-
-        # 1, l
-        # 3, m
-        # 5  h
-        
+        # Time O(logm + logn) where m is the number of rows and n is the number of columns
+        # Space O(1)
         low_row_idx, high_row_idx = 0, len(matrix) - 1
         
         while low_row_idx <= high_row_idx:
@@ -23,6 +13,7 @@ class Solution:
                 high_row_idx = mid_row_idx - 1
             else:
                 break
+                
                 
         if low_row_idx > high_row_idx: 
             return False
