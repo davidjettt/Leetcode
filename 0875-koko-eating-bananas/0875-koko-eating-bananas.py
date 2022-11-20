@@ -26,6 +26,9 @@ class Solution:
         #  k =   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 
         #.                lm r                 
         
+        
+        # Time O(log(max(p) )* p) where p is the size of piles
+        # Space O(1)
         max_k = max(piles)
         res = max_k  # 6
         left, right = 1, max_k
@@ -37,8 +40,6 @@ class Solution:
             
             for pile in piles:
                 curr_hrs += math.ceil(pile / k) # 11 / 4
-            
-            
             
             if curr_hrs <= h:
                 res = min(res, k)
