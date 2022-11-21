@@ -3,21 +3,7 @@
 
 class Solution:
     def firstBadVersion(self, n: int) -> int:
-        
-        # 1, 2, 3, 4, 5
-        #        r  lm 
-        
-        
-        # initilize left & right pointers, result variable
-        # performing binary search between version 1 - n
-        # calculate the midpoint
-        # run api call on the midpint
-        # if api call returns true, update our result variable and move right pointer
-        # if api call returns false, move left pointer
-        
-        # once binary search ends (when left > right), return result variable
-        
-        # Time O(logn)
+        # Time O(logn) where n is number of versions
         # Space O(1)
         
         first_bad = 0
@@ -34,23 +20,6 @@ class Solution:
                 
         return first_bad
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        # [ 1, 2, 3, 4, 5 ]
-        # binary search
-        
 #         l, r = 1, n
         
 #         while l < r:
@@ -65,7 +34,3 @@ class Solution:
 #                 l = mid + 1
                 
 #         return l
-        
-        
-        # Time O(logn)
-        # Space O(1)
