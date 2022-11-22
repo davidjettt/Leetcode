@@ -7,32 +7,32 @@ class Solution:
         # l     r
         
         
-#         chars = set()
-#         res = 0
-        
-#         l = 0
-#         for r in range(len(s)):
-#             while s[r] in chars:
-#                 chars.remove(s[l])
-#                 l += 1
-#             chars.add(s[r])
-                
-#             res = max(res, r - l + 1)
-            
-        # return res
-    
-    
-        l, r = 0, 0
+        chars = set()
         res = 0
-        seen = set()
         
-        while l < len(s) and r < len(s):
-            if s[r] not in seen:
-                seen.add(s[r])
-                res = max(res, r - l + 1)
-                r += 1
-            else:
-                seen.remove(s[l])
+        l = 0
+        for r in range(len(s)):
+            while s[r] in chars:
+                chars.remove(s[l])
                 l += 1
+            chars.add(s[r])
+                
+            res = max(res, r - l + 1)
+            
         return res
+    
+    
+#         l, r = 0, 0
+#         res = 0
+#         seen = set()
+        
+#         while l < len(s) and r < len(s):
+#             if s[r] not in seen:
+#                 seen.add(s[r])
+#                 res = max(res, r - l + 1)
+#                 r += 1
+#             else:
+#                 seen.remove(s[l])
+#                 l += 1
+#         return res
         
