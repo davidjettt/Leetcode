@@ -12,6 +12,7 @@ class Solution:
             while left < right:
                 threeSum = nums[i] + nums[left] + nums[right]
                 
+                # reassigns res to be the value that is closest to target between threeSum and res
                 if abs(threeSum - target) < abs(res - target):
                     res = threeSum
                     
