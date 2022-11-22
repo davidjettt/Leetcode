@@ -11,31 +11,31 @@ class Solution:
         }
         
         
-#         res = 0
+        res = 0
 
-#         prev = 0
-#         for i in range(len(s) - 1, -1, -1):
-#             symbol = s[i]
-#             if roman[symbol] >= roman[s[prev]]:
-#                 res += roman[symbol]
-#             else:
-#                 res -= roman[symbol]
-        
-#             prev = i
-#         return res
-    
-    
-        result = 0
-        prev = 0
-        
-        for c in reversed(s):
-            if roman[c] >= prev:
-                result += roman[c]
+        prev_val = 0
+        for i in range(len(s) - 1, -1, -1):
+            symbol = s[i]
+            if roman[symbol] >= prev_val:
+                res += roman[symbol]
             else:
-                result -= roman[c]
-            prev = roman[c]
+                res -= roman[symbol]
+        
+            prev_val = roman[symbol]
+        return res
+    
+    
+#         result = 0
+#         prev = 0
+        
+#         for c in reversed(s):
+#             if roman[c] >= prev:
+#                 result += roman[c]
+#             else:
+#                 result -= roman[c]
+#             prev = roman[c]
             
-        return result
+#         return result
         
         
 #         for i in range(len(s)):
