@@ -12,7 +12,7 @@ class Solution:
         res = []
         q = deque()
         q.append(root)
-        root.level = 0
+        # root.level = 0
         
         while q:
             qLen = len(q)
