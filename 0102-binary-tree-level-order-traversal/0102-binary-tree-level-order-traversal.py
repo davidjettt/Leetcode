@@ -6,6 +6,8 @@
 #         self.right = right
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        # Time O(n) where n is number of nodes
+        # Space O(n) where n is the size of the deque
         if not root:
             return []
         
