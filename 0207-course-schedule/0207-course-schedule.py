@@ -1,40 +1,32 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        # all pairs of prereq[i] are unique
-        # each prereq contains exactly 2 values
-        # we need to take prereq[b] before we can take prereq[a]
-        
-        # numCourses are labeled from 0 to n - 1
-        
-        #.  
-        # [[1,0], [2,1], [3,1]] numCourses = 4
-        
-        #.   0.      1
-        # [[1,0], [0,1]] numCourse = 2
-        
         """
+        [[1,0], [2,1], [3,1]] numCourses = 4
         {
             0: [1,0],
             1: [0,1]
         }
         
+        prereqs = [[0,1], [0,2], [1,3], [1,4], [3,4]]
         
-        
+        {
+            0: [1, 2], # []
+            1: [3, 4], # []
+            2: [],
+            3: [4], # []
+            4: []
+        }
         
         """
         
-        adj_list = {} # {0: [], 1: [0]}
-        visited = set()
+        # Time O(n * p) where n is number of nodes and p is number of prereqs b/c we have to visit every single node and edge
+        # Space O(n * m)
+        adj_list = { i:[] for i in range(numCourses) } # {0: [], 1: [0]}
+        visited = set() # {  }
 
-        for i in range(numCourses):
-            adj_list[i] = []
+        for course, prereq in prerequisites:
+            adj_list[course].append(prereq)
 
-        for edge1, edge2 in prerequisites:
-            adj_list[edge1].append(edge2)
-
-
-        print(adj_list)
-        
         def dfs(course):
             if course in visited:
                 return False
@@ -46,10 +38,13 @@ class Solution:
             for neigh in adj_list[course]:
                 if not dfs(neigh):
                     return False
+                
+            # removes course we have visited already and set it to an empty array b/c we can finish that course so it will return True in case we run dfs on it again
             visited.remove(course) 
             adj_list[course] = []
             return True
 
+        # need to loop through each course in case of graphs that are not connected
         for course in range(numCourses):
             if not dfs(course):
                 return False
