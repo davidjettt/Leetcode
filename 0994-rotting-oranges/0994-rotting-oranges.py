@@ -36,14 +36,15 @@ class Solution:
         1) have a check for 1s in first loop (like an else if) 
         2) after done w/ bfs, loop through grid again looking for 1s
         '''
-        
+        # Time O(n * m)
+        # Space O(n + m)
         res = [0] # 1
         rows, cols = len(grid), len(grid[0])
         visited = set() 
         q = collections.deque() # [  (2,2, 4)  ]
+        fresh_oranges = [0]
         
         def bfs():
-            
             while q:
                 r, c, mins = q.popleft()  # (2,1,3)
                 
@@ -55,14 +56,10 @@ class Solution:
                 for dirX, dirY in directions:
                     newX, newY = dirX + r, dirY + c
                     
-                    # if 0 <= newX < rows and 0 <= newY < cols and (newX, newY) not in visited and grid[newX][newY] == 2:
-                    #     mins -= 1
-                    #     visited.add((newX, newY))
-                    
                     if 0 <= newX < rows and 0 <= newY < cols and (newX, newY) not in visited and grid[newX][newY] == 1:
+                        fresh_oranges[0] -= 1
                         visited.add((newX, newY))
                         q.append((newX, newY, mins + 1))
-                        # res += 1
                 if len(q) == 0:
                     res[0] = mins
             
@@ -73,13 +70,16 @@ class Solution:
                 if grid[r][c] == 2 and (r, c) not in visited:
                     q.append((r, c, 0))
                     visited.add((r, c))
+                elif grid[r][c] == 1:
+                    fresh_oranges[0] += 1
                     
         bfs()
+        return -1 if fresh_oranges[0] > 0 else res[0]
         
-        for r in range(rows):
-            for c in range(cols):
-                if grid[r][c] == 1:
-                    return -1
-        return res[0]        
+        # for r in range(rows):
+        #     for c in range(cols):
+        #         if grid[r][c] == 1:
+        #             return -1
+        # return res[0]        
         
         
