@@ -2,27 +2,6 @@ import collections
 class Solution:
     def orangesRotting(self, grid: List[List[int]]) -> int:
         '''
-        
-        [
-            [2,1,1],
-            [1,1,1],
-            [0,1,2]
-        ]
-        
-        [
-            [2,2,2],
-            [2,2,0],
-            [0,2,2]
-        ]
-        
-        
-        [
-            [2,1,1],
-            [0,1,1],
-            [1,0,1]
-        ]
-        
-        
         iterate through the grid
         run bfs on every 2 we find
         
@@ -36,9 +15,15 @@ class Solution:
         1) have a check for 1s in first loop (like an else if) 
         2) after done w/ bfs, loop through grid again looking for 1s
         '''
+        # time, fresh = 0, 0
+        # rows, cols = len(grid), len(grid[0])
+        
+        
+        
+        
         # Time O(n * m)
         # Space O(n + m)
-        res = [0] # 1
+        res = [0] 
         rows, cols = len(grid), len(grid[0])
         visited = set() 
         q = collections.deque() # [  (2,2, 4)  ]
@@ -63,11 +48,9 @@ class Solution:
                 if len(q) == 0:
                     res[0] = mins
             
-            
-        
         for r in range(rows):
             for c in range(cols):
-                if grid[r][c] == 2 and (r, c) not in visited:
+                if grid[r][c] == 2:
                     q.append((r, c, 0))
                     visited.add((r, c))
                 elif grid[r][c] == 1:
@@ -75,11 +58,5 @@ class Solution:
                     
         bfs()
         return -1 if fresh_oranges[0] > 0 else res[0]
-        
-        # for r in range(rows):
-        #     for c in range(cols):
-        #         if grid[r][c] == 1:
-        #             return -1
-        # return res[0]        
         
         
