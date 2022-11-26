@@ -1,49 +1,36 @@
 class Solution:
     def longestPalindrome(self, s: str) -> str:
         """"
+        b a b a d
         
-         b a b a d
-           i
+        a n n a x y z
+        l     r
+        
+      
+         loop through the input string
          
-         {
-            c: 1,
-            b:
-         }
+         each iteration check for odd and even length substrings
          
-         
-         c b b d
-         l r
-          
-          
-          {
-            a: 2,
-            n: 2
-          }
-          
-           
-         a n n a x y z b
-         l     r 
-         
-         iterate through input string
-         for odd l, r pointers point to same letter
-         use while loop to check if s[r] == s[l] and check if pointers are in bounds
-         compare the length of substring with length of result
-         move l, r pointers
-         
-         for even
-         right pointer starts at left plus 1
-         
-         
+         checking if the letters of right and left 
+            if they are the same, compare the length of it with our result
+        
+        
+        for odd, left, right pointers start at the same place
+        for even, right pointer starts at left + 1
+        
+        return result
+         Time O(n^2)
+         Space O(1)
         """
-        # Time O(n^2)
-        # Space O(1)
+        
         res = ''
         res_len = 0
         
         for i in range(len(s)):
-            # for odd
+            # odd
+            
             l, r = i, i
-            while l >= 0 and r < len(s) and s[r] == s[l]:
+            while l >= 0 and r < len(s) and s[l] == s[r]:
                 if r - l + 1 > res_len:
                     res = s[l:r + 1]
                     res_len = r - l + 1
@@ -51,21 +38,17 @@ class Solution:
                 l -= 1
                 r += 1
             
-            # for even
+            # even
             l, r = i, i + 1
-            
-            while l >= 0 and r < len(s) and s[r] == s[l]:
-                if r - l + 1 > res_len:
+            while l >= 0 and r < len(s) and s[l] == s[r]:
+                if r- l + 1 > res_len:
                     res = s[l:r + 1]
                     res_len = r - l + 1
+                
                 l -= 1
                 r += 1
-                    
+        
         return res
-            
-        
-        
-        
         
         
         # BRUTE FORCE APPROACH
