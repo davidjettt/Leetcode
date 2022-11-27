@@ -1,5 +1,9 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
+        '''
+ 
+        '''
+        
         # Time O(n)
         # Space O(1)
         length = len(nums)
