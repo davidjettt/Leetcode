@@ -21,45 +21,52 @@ class Solution:
         Time O(nlogn) where n is the size of the nums array
         Space O(n + m) where n is size of the sorted array, and m is size of hashmap
         '''
-#         count = {}
-#         freq = [[] for i in range(len(nums) + 1)]
         
-#         for n in nums:
-#             count[n] = 1 + count.get(n, 0)
-#         for n, c in count.items():
-#             freq[c].append(n)
-        
-#         res = []
-#         for i in range(len(freq) - 1, 0, -1):
-#             for n in freq[i]:
-#                 res.append(n)
-#                 if len(res) == k:
-#                     return res
-        
-        
-        res = [] 
-        frequency_map = {}
+        count = {}
+        freq = [[] for i in range(len(nums) + 1)]
         
         for n in nums:
-            frequency_map[n] = 1 + frequency_map.get(n, 0)
+            count[n] = 1 + count.get(n, 0)
+        for n, c in count.items():
+            freq[c].append(n)
         
-        counts = [''] * (len(nums) + 1)
-
-        for n in frequency_map:
-            # counts[frequency_map[n]].append(n)
-            if counts[frequency_map[n]] != '': 
-                counts[frequency_map[n]].append(n)
-            else:
-                counts[frequency_map[n]] = [n]
-                
-        for i in range(len(counts) - 1, 0, -1):
-            for n in counts[i]:
+        res = []
+        for i in range(len(freq) - 1, 0, -1):
+            for n in freq[i]:
                 res.append(n)
                 if len(res) == k:
                     return res
-
-            
         
+    
+    
+        # Time O(n)
+#         res = [] 
+#         frequency_map = {}
+        
+#         for n in nums:
+#             frequency_map[n] = 1 + frequency_map.get(n, 0)
+        
+#         counts = [''] * (len(nums) + 1)
+
+#         for n in frequency_map:
+#             if counts[frequency_map[n]] != '': 
+#                 counts[frequency_map[n]].append(n)
+#             else:
+#                 counts[frequency_map[n]] = [n]
+                
+#         for i in range(len(counts) - 1, 0, -1):
+#             for n in counts[i]:
+#                 res.append(n)
+#                 if len(res) == k:
+#                     return res
+
+        # Time (nlogn)
+        # Space (n + m)
+#         res = [] 
+#         frequency_map = {}
+#         for n in nums:
+#             frequency_map[n] = 1 + frequency_map.get(n, 0)
+            
 #         sorted_list = sorted(frequency_map.items(), key=lambda x:x[1])
         
 #         for i in range(len(sorted_list) - 1, -1, -1):
