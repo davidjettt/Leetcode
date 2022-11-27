@@ -39,20 +39,12 @@ class Solution:
             else:
                 counts[frequency_map[n]] = [n]
                 
-        for i in range(len(counts) - 1, -1, -1):
-            if k == 0:
-                break
-            else: 
-                if not counts[i]:
-                    continue
-                else:
-                    for n in counts[i]:
-                        if k == 0:
-                            break
-                        else:
-                            res.append(n)
-                            k -= 1
-        return res
+        for i in range(len(counts) - 1, 0, -1):
+            for n in counts[i]:
+                res.append(n)
+                if len(res) == k:
+                    return res
+
             
         
 #         sorted_list = sorted(frequency_map.items(), key=lambda x:x[1])
