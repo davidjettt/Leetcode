@@ -10,18 +10,6 @@ class Solution:
              }     
              
              [(1, 3), (2, 2), (3, 1)]
-                              
-                              
-        [ 1, 1, 1, 1, 1, 1, 1, 1, 2 ] k = 1 [1]
-        
-        [(1, 8),(2, 1) ]
-           i
-        
-                  
-        1 2 3
-        1, 2
-        
-        [ 1, 2 ]
         
         make a frequency map  n
         
@@ -34,20 +22,46 @@ class Solution:
         Space O(n + m) where n is size of the sorted array, and m is size of hashmap
         '''
         
-        res = [] # [1, 2]
+        
+        
+        res = [] 
         frequency_map = {}
         
         for n in nums:
             frequency_map[n] = 1 + frequency_map.get(n, 0)
             
+            
+        counts = [''] * (len(nums) + 1)
         
-        sorted_list = sorted(frequency_map.items(), key=lambda x:x[1])
-        
-        for i in range(len(sorted_list) - 1, -1, -1):
+        for n in frequency_map:
+            if counts[frequency_map[n]] != '': 
+                counts[frequency_map[n]].append(n)
+            else:
+                counts[frequency_map[n]] = [n]
+                
+        for i in range(len(counts) - 1, -1, -1):
             if k == 0:
                 break
-            else:
-                res.append(sorted_list[i][0])
-                k -= 1
-            
+            else: 
+                if not counts[i]:
+                    continue
+                else:
+                    for n in counts[i]:
+                        if k == 0:
+                            break
+                        else:
+                            res.append(n)
+                            k -= 1
         return res
+            
+        
+#         sorted_list = sorted(frequency_map.items(), key=lambda x:x[1])
+        
+#         for i in range(len(sorted_list) - 1, -1, -1):
+#             if k == 0:
+#                 break
+#             else:
+#                 res.append(sorted_list[i][0])
+#                 k -= 1
+            
+#         return res
