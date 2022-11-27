@@ -41,9 +41,13 @@ class Solution:
             frequency_map[n] = 1 + frequency_map.get(n, 0)
             
         
-        sorted_list = sorted(frequency_map.items(), reverse=True, key=lambda x:x[1])
+        sorted_list = sorted(frequency_map.items(), key=lambda x:x[1])
         
-        for i in range(k):
-            res.append(sorted_list[i][0])
+        for i in range(len(sorted_list) - 1, -1, -1):
+            if k == 0:
+                break
+            else:
+                res.append(sorted_list[i][0])
+                k -= 1
             
         return res
