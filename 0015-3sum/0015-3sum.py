@@ -1,43 +1,10 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         '''
-        [ -1, 0, 1, 2, -1, -4 ]
-        
-        [ [-1, 0, 1], [-1, -1, 2] ]
-        
-        
-        res = [[-1, -1, 2], [-1, 1, 0]]
-        
-        [ -4, -1, -1, 0, 1, 2 ]
-               i.        lr                    
-          
-          
-        iterate through length of nums array - 2
-        
-            check of triplets already exist in result array
-            
-            left pointer start at i + 1
-            right pointer start at end of array
-            
-            use while loop as long as left < right
-            
-            binary search based off of the total sum
-            
-            total sum > 0: move right pointer
-            total sum < 0: move left pointer
-            
-            if find tatal sum == 0: check if it already exists in the result array
-            
-            
-            return result at the end
-        [ -1, 0, 0, 1]
-          i      l  r
-        
-        [0, 0, 0]
-         i.    lr
         
         '''
-        
+        # Time O(n2)
+        # Space O(n)
         triplets = []
         nums.sort()
         
@@ -63,65 +30,6 @@ class Solution:
         
         return triplets
             
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
 #         triplets = []
 #         nums.sort()
