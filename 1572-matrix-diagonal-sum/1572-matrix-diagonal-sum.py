@@ -44,27 +44,22 @@ class Solution:
         
         if len(mat) == 1:
             return mat[0][0]
-        primary = 0 # 15
         
-        for i in range(len(mat)): # i = 2
+        primary = 0 
+        for i in range(len(mat)):
             primary += mat[i][i]
             
         
-        secondary = 0 # 10
-        
+        secondary = 0 
         r, c = 0, len(mat) - 1
-        
-        while r <= len(mat) - 1 and c >= 0:
+        while r < len(mat) and c >= 0:
             if r == c and len(mat) % 2 != 0:
                 r += 1
                 c -= 1
-                # continue
             
             secondary += mat[r][c]
             
             r += 1
             c -= 1
             
-        print('primary', primary)
-        print('sec', secondary)
         return primary + secondary
