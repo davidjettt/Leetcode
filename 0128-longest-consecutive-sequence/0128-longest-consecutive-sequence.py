@@ -35,17 +35,16 @@ class Solution:
         [ '.',  '.', 2, 3, '.', 5, '.', '.' ]
                                lr
         '''
-        
+        # Time O(n)
+        # Space O(n) 
         reference = set(nums)
-        
         res = 0
         
         for n in reference:
             count = 1
             if n - 1 not in reference:
-                while n + 1 in reference:
+                while n + count in reference:
                     count += 1
-                    n = n + 1
                 res = max(res, count)
         
         return res
