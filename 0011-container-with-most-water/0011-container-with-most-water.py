@@ -1,8 +1,6 @@
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         '''
-        biggestMinHeight = 1 
-        
          0           4.          8
         [1, 8, 6, 2, 5, 4, 8, 3, 7 ]
             l              r   
@@ -22,13 +20,8 @@ class Solution:
         
         
         length of x-axis -> 8 - 1 = 7 (length of pointers -> r - l)
-        length of y-axis -> min(end2a[1], end2b[1]) min(v1, v2)
-        
-        1, 7  maxArea = 49
-        y = 1
-        x = r - l 8
-        
-        
+        length of y-axis -> min(v1, v2)
+
         start pointers at end of arr
         
         calcaulate area for that container
@@ -43,14 +36,15 @@ class Solution:
         return maxArea
         
         '''
+        # Time O(n) where n is the size of height array
+        # Space O(1)
         max_area = 0
-        
         l, r = 0, len(height) - 1
         
         while l < r:
-            x_axis = r - l
-            y_axis = min(height[l], height[r])
-            area = x_axis * y_axis
+            x_axis_len = r - l
+            y_axis_len = min(height[l], height[r])
+            area = x_axis_len * y_axis_len
             
             max_area = max(max_area, area)
             
@@ -62,5 +56,13 @@ class Solution:
                 l += 1
                 r -= 1
         return max_area
+    
+        # BRUTE FORCE
+        # res = 0
+        # for l in range(len(height)):
+        #     for r in range(l + 1, len(height)):
+        #         area = (r - l) * min(height[l], height[r])
+        #         res = max(res, area)
+        # return res
             
         
