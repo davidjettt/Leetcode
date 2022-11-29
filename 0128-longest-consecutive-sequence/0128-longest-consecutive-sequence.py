@@ -1,84 +1,34 @@
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         '''
-        [ 100, 4, 200, 1, 3, 2 ] output: 4
+        store nums array in hashset
+        iterate though nums 
+            check if n - 1 exists in set
             
-        1 2 3 4
-        
-        [100, 4, 200, 1, 3, 2]
-        
-        res = 4
-        [ 1, 2, 3, 4, 100, 200 ]
-                            l    r
-        
-        
-        
-        [ 0, 1, 10, 9, 4, 5, 2 ]  3
-        
-        0 1 2
-        
-        4 5
-        
-        9 10
-        
-        [-1, -10, -5, 0, -3, -2 ] 4
-        
-        -3 -2 -1 0
-        
-        res = 2
-        [1,3, 5, 6]
-              l  r
-        
-        res= 3
-        [ 1, 3, 6, 7, 10, 11, 12 ] 3
-                       l       r
-        [ '.',  '.', 2, 3, '.', 5, '.', '.' ]
-                               lr
-        '''
-        # Time O(n)
-        # Space O(n) 
-        reference = set(nums)
-        res = 0
-        
-        for n in reference:
-            count = 1
-            if n - 1 not in reference:
-                while n + count in reference:
-                    count += 1
-                res = max(res, count)
-        
+            if false, count up to see if n + 1 exists in set (also keep track of length of seq), repeat until no more seq
+            
+            once we finish seq count, compare length with res 
+            
+            if true, do nothing
+            
+            
         return res
-            
-            
+        '''
+        # Time O(n) where n is the size of the set
+        # Space O(n) where n is the size of the set
+        res = 0
+        nums_set = set(nums)
+        
+        for n in nums_set:
+            if n - 1 not in nums_set:
+                count = 1
+                while n + count in nums_set:
+                    count += 1
                 
-        
-#         biggest = max(nums)
-        
-#         num_line = [ ['.'] for i in range(biggest + 1)  ] 
-        
-#         for n in set(nums):
-#             num_line[n] = n
-            
-            
-#         res = 1
-#         l, r = 0, 1
-        
-#         while r < len(num_line):
-#             while num_line[r] == '.' and r < len(num_line):
-#                 r += 1
-#                 l = r
-            
-#             if num_line[r - 1] == '.':
-#                 r += 1
-#                 continue
-            
-#             if num_line[r] - 1 == num_line[r - 1]: 
-#                 res = max(res, r - l + 1)
-#             r += 1
+                res = max(res, count)
                 
-#         return res
-        
-        
+        return res
+
         # Time O(nlogn) where n is the size of the unqiue array
         # Space O(n) where n is the size of the set
 #         unique = list(set(nums))
