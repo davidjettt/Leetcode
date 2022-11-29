@@ -1,13 +1,73 @@
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        s = 0
+        '''
+        [ 1, 2, 3, 4 ]
+                    
+        iterate through the array
+        if nums[i - 1] == nums[i]
+        
+        '''
+        # time O(nlogn)
+        # space O(1)
         nums.sort()
-        for e in range(1, len(nums)):
-            if nums[s] == nums[e]:
+        
+        for i in range(len(nums)):
+            if i > 0 and nums[i - 1] == nums[i]:
                 return True
-            else:
-                s += 1
+        
         return False
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
