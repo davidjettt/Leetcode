@@ -19,13 +19,16 @@ class Solution:
                 
         
         e i d b a o o o
-          l r
+              l   r
         
         
         
         
         
         '''
+        
+        
+        
         
         l, r = 0, len(s1) - 1
         chars = {}
@@ -40,6 +43,8 @@ class Solution:
                 
             if chars2 == chars:
                 return True
+            # if sorted(s1) == sorted(s2[l:r+1]):
+            #     return True
             
             l += 1
             r += 1
