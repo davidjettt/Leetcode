@@ -29,9 +29,9 @@ class Solution:
         '''
         res = 0
         chars = set()
-        l, r = 0, 0
+        l = 0
 
-        while r < len(s):
+        for r in range(len(s)):
             if s[r] in chars:
                 while s[l] != s[r] and l < r:
                     chars.remove(s[l])  
@@ -41,72 +41,8 @@ class Solution:
             else:
                 chars.add(s[r])
                 res = max(res, r - l + 1) 
-            
-            r += 1
                 
         return res
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         # need to find length of longest substring without repeating characters in the answer
