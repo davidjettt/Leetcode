@@ -29,22 +29,17 @@ class Solution:
         '''
         res = 0
         chars = set()
-        # chars = {}
-        
         l, r = 0, 0
 
         while r < len(s):
-            print(chars)
             if s[r] in chars:
                 while s[l] != s[r] and l < r:
                     chars.remove(s[l])  
-                    # del chars[s[l]]
                     l += 1
                 
                 l += 1
             else:
                 chars.add(s[r])
-                # chars[s[r]] = r
                 res = max(res, r - l + 1) 
             
             r += 1
@@ -135,17 +130,17 @@ class Solution:
 #         return res
     
     
-        l, r = 0, 0
-        res = 0
-        seen = set()
+#         l, r = 0, 0
+#         res = 0
+#         seen = set()
         
-        while l < len(s) and r < len(s):
-            if s[r] not in seen:
-                seen.add(s[r])
-                res = max(res, r - l + 1)
-                r += 1
-            else:
-                seen.remove(s[l])
-                l += 1
-        return res
+#         while l < len(s) and r < len(s):
+#             if s[r] not in seen:
+#                 seen.add(s[r])
+#                 res = max(res, r - l + 1)
+#                 r += 1
+#             else:
+#                 seen.remove(s[l])
+#                 l += 1
+#         return res
         
