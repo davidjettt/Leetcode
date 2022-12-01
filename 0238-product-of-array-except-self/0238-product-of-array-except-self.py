@@ -1,41 +1,66 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         '''
+        [1,2,3,4]
+           
+        [1,1,2,6]
+        
+        [24,12,4,1]
+        
+        [4,3,2,1]
+        
+        [1,4,12,24]
+    
+        
+        make right and left arrays 
+        compute right and left arrays
+        reverse the right array
+        mult the same indicies and assign that to the idx of our answer array
+        
+        [1,1,2,6]
  
         '''
         
+        
         # Time O(n)
         # Space O(1)
-        length = len(nums)
-        answer = [1] * length
-        prefix, postfix = 1, 1
+#         length = len(nums)
+#         answer = [1] * length
+#         prefix, postfix = 1, 1
         
-        for i in range(length):
-            answer[i] = prefix
-            prefix *= nums[i]
+#         for i in range(length):
+#             answer[i] = prefix
+#             prefix *= nums[i]
 
-        for i in range(length - 1, -1, -1):
-            answer[i] *= postfix
-            postfix *= nums[i]
+#         for i in range(length - 1, -1, -1):
+#             answer[i] *= postfix
+#             postfix *= nums[i]
+        
+#         return answer
+        
+    
+        # Time O(n)
+        # Space O(n)
+        n = len(nums)
+        answer = [] 
+        left, right = [1] * n, [1] * n
+        nums_reversed = nums[::-1]
+        
+        for i in range(1, n):
+            left[i] = left[i - 1] * nums[i - 1] 
+        
+        
+        for i in range(1, n):
+            right[i] = right[i - 1] * nums_reversed[i - 1]
+            
+        right_reversed = right[::-1]
+        for i in range(n):
+            answer.append(left[i] * right_reversed[i])
         
         return answer
-        
-#         # Time O(n)
-#         # Space O(n)
-#         n = len(nums)
-#         answer = []
-#         prefix, postfix = [1] * n, [1] * n
-#         for i in range(1, n):
-#             prefix[i] = prefix[i - 1] * nums[i - 1]
-        
-#         for i in range(1, n):
-#             postfix[i] = postfix[i - 1] * nums[::-1][i - 1]
-#             print(postfix)
-        
-#         for i in range(n):
-#             answer.append(prefix[i] * postfix[::-1][i])
-            
-#         return answer
+    
+    
+
         
 #         length = len(nums)
 #         answer = [''] * length
