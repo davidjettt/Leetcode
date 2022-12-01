@@ -1,5 +1,51 @@
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
+        '''
+        [ 3, 6, 7, 11 ]  8
+                   i         
+                 k             
+        1, 2, 3, 4, 5, 6, 7, 8 9, 10, 11
+                 l  r                                    
+        
+        perform binary search from 1, max(piles)
+        
+            set a provisional k value
+            
+            test that k value by going though the array and calculating how long it takes koko to eat all the bananas
+            
+            if hours <= h
+                then we have a valid k
+                compare that with result (get the min)
+                move right pointer
+                
+            hours > h
+                not valid
+                move left pointer
+            
+        return res
+        
+        Time O(logn * max(p)) where n is the max number of bananas and p is the size of piles array
+        Space O(1)
+        '''
+        
+        max_k = max(piles)
+        res = max_k
+        l, r = 1, max_k
+        while l <= r:
+            k = (r + l) // 2
+            
+            hours = 0
+            for num_bananas in piles:
+                hours += math.ceil(num_bananas / k)
+            
+            if hours <= h:
+                res = min(res, k)
+                r = k - 1
+            else:
+                l = k + 1
+        
+        return res
+                
         
         # k has to be between 1 - max number in the piles
         # b/c at most koko can eat at most k bananas
