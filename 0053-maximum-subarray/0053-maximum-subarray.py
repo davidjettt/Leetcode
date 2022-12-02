@@ -1,5 +1,78 @@
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
+        '''
+        
+        [-1]
+          i
+        
+        '''
+        
+        res = float('-inf')
+        curr_sum = 0
+        for n in nums:
+            if curr_sum < 0:
+                curr_sum = 0
+            curr_sum += n
+            res = max(res, curr_sum)
+        
+        return res
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         # edge case: if length of nums is 1 return nums[0]
 
