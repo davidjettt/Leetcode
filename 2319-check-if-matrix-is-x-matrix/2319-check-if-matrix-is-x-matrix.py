@@ -22,36 +22,46 @@ class Solution:
         check all other cells for zeros (if find non zero return false)
         
         '''
-        # Time O(n * m) where n is size of rows and m is size of cols
-        # Space O(n) where n is size of set
-        visited = set()
-        
-        r, c = 0, 0
-        # primary diagonal
-        while r < len(grid) and c < len(grid):
-            if (r, c) not in visited:
-                visited.add((r, c))
-                if grid[r][c] == 0:
-                    return False
-            
-            r += 1
-            c += 1
-            
-        # secondary diagonal
-        r, c = 0, len(grid) - 1
-        
-        while r < len(grid) and c >= 0:
-            if (r, c) not in visited:
-                visited.add((r, c))
-                if grid[r][c] == 0:
-                    return False
-            
-            r += 1
-            c -= 1
-        
-        for r in range(len(grid)):
-            for c in range(len(grid)):
-                if (r, c) not in visited and grid[r][c] != 0:
+        n = len(grid)
+        for r in range(n):
+            for c in range(n):
+                if r == c or (r + c) == n - 1:
+                    if grid[r][c] == 0:
+                        return False
+                elif grid[r][c] != 0:
                     return False
         return True
+        
+        
+        # Time O(n * m) where n is size of rows and m is size of cols
+        # Space O(n) where n is size of set
+#         visited = set()
+        
+#         r, c = 0, 0
+#         # primary diagonal
+#         while r < len(grid) and c < len(grid):
+#             if (r, c) not in visited:
+#                 visited.add((r, c))
+#                 if grid[r][c] == 0:
+#                     return False
+            
+#             r += 1
+#             c += 1
+            
+#         # secondary diagonal
+#         r, c = 0, len(grid) - 1
+#         while r < len(grid) and c >= 0:
+#             if (r, c) not in visited:
+#                 visited.add((r, c))
+#                 if grid[r][c] == 0:
+#                     return False
+            
+#             r += 1
+#             c -= 1
+        
+#         for r in range(len(grid)):
+#             for c in range(len(grid)):
+#                 if (r, c) not in visited and grid[r][c] != 0:
+#                     return False
+#         return True
         
