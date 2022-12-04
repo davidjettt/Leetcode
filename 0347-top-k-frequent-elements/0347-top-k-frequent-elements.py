@@ -22,20 +22,20 @@ class Solution:
         Space O(n + m) where n is size of the sorted array, and m is size of hashmap
         '''
         
-        count = {}
-        freq = [[] for i in range(len(nums) + 1)]
+#         count = {}
+#         freq = [[] for i in range(len(nums) + 1)]
         
-        for n in nums:
-            count[n] = 1 + count.get(n, 0)
-        for n, c in count.items():
-            freq[c].append(n)
+#         for n in nums:
+#             count[n] = 1 + count.get(n, 0)
+#         for n, c in count.items():
+#             freq[c].append(n)
         
-        res = []
-        for i in range(len(freq) - 1, 0, -1):
-            for n in freq[i]:
-                res.append(n)
-                if len(res) == k:
-                    return res
+#         res = []
+#         for i in range(len(freq) - 1, 0, -1):
+#             for n in freq[i]:
+#                 res.append(n)
+#                 if len(res) == k:
+#                     return res
         
     
     
@@ -62,18 +62,18 @@ class Solution:
 
         # Time (nlogn)
         # Space (n + m)
-#         res = [] 
-#         frequency_map = {}
-#         for n in nums:
-#             frequency_map[n] = 1 + frequency_map.get(n, 0)
+        res = [] 
+        frequency_map = {}
+        for n in nums:
+            frequency_map[n] = 1 + frequency_map.get(n, 0)
             
-#         sorted_list = sorted(frequency_map.items(), key=lambda x:x[1])
+        sorted_list = sorted(frequency_map.items(), key=lambda x:x[1])
         
-#         for i in range(len(sorted_list) - 1, -1, -1):
-#             if k == 0:
-#                 break
-#             else:
-#                 res.append(sorted_list[i][0])
-#                 k -= 1
+        for i in range(len(sorted_list) - 1, -1, -1):
+            if k == 0:
+                break
+            else:
+                res.append(sorted_list[i][0])
+                k -= 1
             
-#         return res
+        return res
