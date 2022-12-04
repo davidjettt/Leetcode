@@ -35,19 +35,19 @@ class Solution:
         count = {1: 0, 0: 0}
         l = 0
         
-        if k == 0:
-            for i in range(len(nums)):
-                if nums[i] == 1:
-                    curr_seq += 1
-                    res = max(res, curr_seq)
-                else:
-                    curr_seq = 0
-            return res
+        # if k == 0:
+        #     for i in range(len(nums)):
+        #         if nums[i] == 1:
+        #             curr_seq += 1
+        #             res = max(res, curr_seq)
+        #         else:
+        #             curr_seq = 0
+        #     return res
         
         for r in range(len(nums)):
             count[nums[r]] += 1
             
-            while count[0] > k and l < r:
+            while count[0] > k:
                 count[nums[l]] -= 1
                 l += 1
             
