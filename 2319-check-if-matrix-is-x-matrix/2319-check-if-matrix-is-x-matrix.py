@@ -22,7 +22,8 @@ class Solution:
         check all other cells for zeros (if find non zero return false)
         
         '''
-        
+        # Time O(n * m) where n is size of rows and m is size of cols
+        # Space O(n) where n is size of set
         visited = set()
         
         r, c = 0, 0
