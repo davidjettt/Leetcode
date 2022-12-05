@@ -23,8 +23,7 @@ class Solution:
         
         for n in nums:
             freq[n] = 1 + freq.get(n, 0)
-        # print(freq)
-        # print(counts)
+
         for num, c in freq.items():
             counts[c].append(num)
             
@@ -36,8 +35,8 @@ class Solution:
             for n in counts[i]:
                 res.append(n)
                 
-                if len(res) == k:
-                    return res
+                k -= 1
+                if k == 0: return res
                 
         
         
