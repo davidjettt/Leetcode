@@ -1,23 +1,103 @@
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         '''
-        [ 1, 1, 1, 2, 2, 3 ]  k = 2
-                  
-             {
-                1: 3,
-                2: 2,
-                3: 1
-             }     
-             
-             [(1, 3), (2, 2), (3, 1)]
         
-        make a frequency map  n
+        [1,1,1,2,2,3]
         
-        sort the hashmap based on value  nlogn
-            sorted(hashamp.items(), reversed, key=lambda x:x[1])
-            
-        iterate through sorted list k times and appending element to result n 
+        1 2
+        bucketSort = [[], [3], [2], [1], [], []]
+                                i
+        
+        create count hashmap
+        populting bucketsort array
+        
+        iterating through the array backwards
+            going through each subarray and append that value to result
+            we will be doing that k times
+        
+        return res
         '''
+        res = []
+        freq = {}
+        counts = [ [] for _ in range(len(nums) + 1) ]
+        
+        for n in nums:
+            freq[n] = 1 + freq.get(n, 0)
+        # print(freq)
+        # print(counts)
+        for num, c in freq.items():
+            counts[c].append(num)
+            
+        
+        print(counts)
+        for i in range(len(counts) - 1, -1, -1):
+            if counts[i] == []:
+                continue
+            for n in counts[i]:
+                res.append(n)
+                
+                if len(res) == k:
+                    return res
+                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         count = {}
         freq = [[] for i in range(len(nums) + 1)]
