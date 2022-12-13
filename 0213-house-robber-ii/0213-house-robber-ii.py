@@ -1,35 +1,17 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
         '''
-        [4,4,3,1]
-           i
-
-        [2,3,2]
-         i
-
-        [1,2,3,1,4,2]
-
-        [5,5,8,8,4,2]
-               i
-
-                  s
-        [220,220,140,20,10]
-                  i
-
-        [200,3,140,20,10]
-          i
         '''
-        if len(nums) <= 3: return max(nums)
-        
-        def helper(arr):
-            house1, house2 = 0, 0
-            for curr_house in arr:
-                temp = max(curr_house + house1, house2)
-                house1 = house2
-                house2 = temp
-            return house2
-        
-        return max(helper(nums[1:]), helper(nums[:-1]))
+        # if len(nums) <= 3: return max(nums)
+        return max(nums[0], self.helper(nums[1:]), self.helper(nums[:-1]))
+    
+    def helper(self, arr):
+        house1, house2 = 0, 0
+        for curr_house in arr:
+            temp = max(curr_house + house1, house2)
+            house1 = house2
+            house2 = temp
+        return house2
 
 
         # if len(nums) <= 3:
