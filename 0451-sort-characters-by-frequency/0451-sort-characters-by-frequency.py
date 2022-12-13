@@ -40,11 +40,12 @@ class Solution:
         for char, count in freq_map.items():
             buckets[count].append(char)
 
-        res = ''
+        res = []
         for i in range(len(buckets) - 1, -1, -1):
             for char in buckets[i]:
-                res += (char * i)
-        return res
+                # res += (char * i)
+                res.append(char * i)
+        return ''.join(res)
 
             
 
