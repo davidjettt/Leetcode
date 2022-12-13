@@ -29,38 +29,23 @@ class Solution:
 #             res += (char * count)
         
 #         return res
-        
-        
-        
-        
+
         freq_map = {}
-        lowercase = [[] for _ in range(len(s) + 1)]
-        uppercase = [[] for _ in range(len(s) + 1)]
-        digits = [[] for _ in range(len(s) + 1)]
+        buckets = [[] for _ in range(len(s) + 1)]
+
 
         for char in s:
             freq_map[char] = 1 + freq_map.get(char, 0)
 
         for char, count in freq_map.items():
-            lowercase[count].append(char)
-            # if char.isnumeric():
-            #     digits[count].append(char)
-            # elif char.isupper():
-            #     uppercase[count].append(char)
-            # else:
-            #     lowercase[count].append(char)
-        
-        i = len(s)
+            buckets[count].append(char)
+
         res = ''
-        while i >= 0:
-            for x in lowercase[i]:
-                res += (x * i)
-            # for y in uppercase[i]:
-            #     res += (y * i)
-            # for z in digits[i]:
-            #     res += (z * i)
-            i -= 1
+        for i in range(len(buckets) - 1, -1, -1):
+            for char in buckets[i]:
+                res += (char * i)
         return res
+
             
 
 
