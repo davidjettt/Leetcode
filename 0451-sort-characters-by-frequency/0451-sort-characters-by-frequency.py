@@ -42,22 +42,23 @@ class Solution:
             freq_map[char] = 1 + freq_map.get(char, 0)
 
         for char, count in freq_map.items():
-            if char.isnumeric():
-                digits[count].append(char)
-            elif char.isupper():
-                uppercase[count].append(char)
-            else:
-                lowercase[count].append(char)
+            lowercase[count].append(char)
+            # if char.isnumeric():
+            #     digits[count].append(char)
+            # elif char.isupper():
+            #     uppercase[count].append(char)
+            # else:
+            #     lowercase[count].append(char)
         
         i = len(s)
         res = ''
         while i >= 0:
             for x in lowercase[i]:
                 res += (x * i)
-            for y in uppercase[i]:
-                res += (y * i)
-            for z in digits[i]:
-                res += (z * i)
+            # for y in uppercase[i]:
+            #     res += (y * i)
+            # for z in digits[i]:
+            #     res += (z * i)
             i -= 1
         return res
             
