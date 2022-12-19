@@ -26,17 +26,21 @@ class Solution:
         curr1, curr2 = l1, l2
         res = []
         carry_over = 0
+        dummy = ListNode()
+        curr = dummy
         while curr1 and curr2:
             curr_sum = curr1.val + curr2.val + carry_over
 
             if curr_sum < 10:
-                res.append(curr_sum)
+                # res.append(curr_sum)
+                curr.next = ListNode(curr_sum)
                 carry_over = 0
             else:
                 ones_place = curr_sum - 10
-                res.append(ones_place)
+                # res.append(ones_place)
+                curr.next = ListNode(ones_place)
                 carry_over = 1
-            
+            curr = curr.next
             curr1 = curr1.next
             curr2 = curr2.next
         
@@ -44,40 +48,49 @@ class Solution:
             curr_sum = curr1.val + carry_over
 
             if curr_sum < 10:
-                res.append(curr_sum)
+                # res.append(curr_sum)
+                curr.next = ListNode(curr_sum)
                 carry_over = 0
             else:
                 ones_place = curr_sum - 10
-                res.append(ones_place)
+                # res.append(ones_place)
+                curr.next = ListNode(ones_place)
                 carry_over = 1
+            curr = curr.next
             curr1 = curr1.next
             
         while curr2:
             curr_sum = curr2.val + carry_over
 
             if curr_sum < 10:
-                res.append(curr_sum)
+                # res.append(curr_sum)
+                curr.next = ListNode(curr_sum)
                 carry_over = 0
             else:
                 ones_place = curr_sum - 10
-                res.append(ones_place)
+                # res.append(ones_place)
+                curr.next = ListNode(ones_place)
                 carry_over = 1
+            curr = curr.next
             curr2 = curr2.next
         
         if carry_over:
-            res.append(carry_over)
-        
-        i = 0
-        dummy = ListNode()
-        curr = dummy
-        while i < len(res):
-            new_node = ListNode(res[i])
-            curr.next = new_node
-            
-            i += 1
-            curr = curr.next
+            # res.append(carry_over)
+            curr.next = ListNode(1)
         
         return dummy.next
+        
+#         i = 0
+#         dummy = ListNode()
+#         curr = dummy
+#         while i < len(res):
+#             new_node = ListNode(res[i])
+#             curr.next = new_node
+            
+#             i += 1
+#             curr = curr.next
+        
+#         return dummy.next
             
                 
     
