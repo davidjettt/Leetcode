@@ -67,18 +67,15 @@ class Solution:
         if carry_over:
             res.append(carry_over)
         
-        print(res)
-        
         i = 0
         dummy = ListNode()
-        final = dummy
+        curr = dummy
         while i < len(res):
             new_node = ListNode(res[i])
-            
-            final.next = new_node
+            curr.next = new_node
             
             i += 1
-            final = final.next
+            curr = curr.next
         
         return dummy.next
             
