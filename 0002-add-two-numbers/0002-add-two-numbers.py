@@ -23,13 +23,18 @@ class Solution:
         5 -> 1
         0 -> 0 -> 0 -> 2
         '''
+        # Time O(n + m)
+        # Space O(n)
         curr1, curr2 = l1, l2
         res = []
         carry_over = 0
         dummy = ListNode()
         curr = dummy
-        while curr1 and curr2:
-            curr_sum = curr1.val + curr2.val + carry_over
+        while curr1 or curr2:
+            v1 = curr1.val if curr1 else 0
+            v2 = curr2.val if curr2 else 0
+            # curr_sum = curr1.val + curr2.val + carry_over
+            curr_sum = v1 + v2 + carry_over
 
             if curr_sum < 10:
                 # res.append(curr_sum)
@@ -41,38 +46,9 @@ class Solution:
                 curr.next = ListNode(ones_place)
                 carry_over = 1
             curr = curr.next
-            curr1 = curr1.next
-            curr2 = curr2.next
+            curr1 = curr1.next if curr1 else None
+            curr2 = curr2.next if curr2 else None
         
-        while curr1:
-            curr_sum = curr1.val + carry_over
-
-            if curr_sum < 10:
-                # res.append(curr_sum)
-                curr.next = ListNode(curr_sum)
-                carry_over = 0
-            else:
-                ones_place = curr_sum - 10
-                # res.append(ones_place)
-                curr.next = ListNode(ones_place)
-                carry_over = 1
-            curr = curr.next
-            curr1 = curr1.next
-            
-        while curr2:
-            curr_sum = curr2.val + carry_over
-
-            if curr_sum < 10:
-                # res.append(curr_sum)
-                curr.next = ListNode(curr_sum)
-                carry_over = 0
-            else:
-                ones_place = curr_sum - 10
-                # res.append(ones_place)
-                curr.next = ListNode(ones_place)
-                carry_over = 1
-            curr = curr.next
-            curr2 = curr2.next
         
         if carry_over:
             # res.append(carry_over)
