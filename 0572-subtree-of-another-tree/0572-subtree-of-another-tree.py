@@ -22,7 +22,7 @@ class Solution:
             return False
         # if find suspected match run dfs on both roots to check for matching descendants
         if root.val == subRoot.val:
-            match = self.sameTree(root.left, subRoot.left) and self.sameTree(root.right, subRoot.right)
+            match = self.sameTree(root, subRoot)
             if match:
                 return True
         
